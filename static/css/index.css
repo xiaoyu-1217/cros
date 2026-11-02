@@ -1,0 +1,884 @@
+/* Adapted from the Nerfies project-page template (https://nerfies.github.io), as used by AnchorWeave. */
+:root {
+  --accent: #6b3fb5;        /* CRoS purple */
+  --accent-dark: #4f2d8a;
+  --accent-light: #f1ecf9;
+  --accent-border: #d9cdef;
+  --gold: #9a7b2f;
+}
+
+/* page-wide type size: Bulma sets 16px; everything below is in rem, so this scales the whole page */
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+.publication-title,
+.publication-authors,
+.publication-venue {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.publication-title {
+  font-size: clamp(1.6rem, 3.3vw, 2.5rem);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.publication-title .line {
+  display: block;
+}
+
+.ours {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.ours .cross {
+  display: inline-block;
+  font-size: 0.85em;
+  margin-right: 0.18em;
+  transform: translateY(-0.04em);
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.link-block a {
+  margin: 5px 3px;
+}
+
+/* section lead and takeaways */
+.lead {
+  font-size: 1rem;
+  text-align: left;
+  color: #000;
+  margin: 0 auto 1.5rem;
+}
+
+.takeaway {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-light);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 6px 6px 0;
+  text-align: left;
+  font-size: 0.95rem;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.takeaway b {
+  color: var(--accent-dark);
+}
+
+/* figures */
+.figure-block img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.figure-caption {
+  font-size: 0.92rem;
+  color: #000;
+  text-align: left;
+  margin-top: 0.6rem;
+}
+
+.sub-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.25rem 0 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .panel > .sub-heading { white-space: nowrap; }
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e6e6e2;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel .desc {
+  font-size: 0.92rem;
+  text-align: left;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.panel .figure-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+/* result tiers */
+.tier {
+  margin-top: 2.25rem;
+}
+
+.tier-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.tier-head .badge {
+  flex: 0 0 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tier-head h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tier .headline {
+  text-align: left;
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 0.9rem;
+}
+
+
+
+/* result tables */
+.results-table {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.results-table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.results-table td,
+.results-table th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.results-table td:first-child,
+.results-table th:first-child {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.results-table tr.ours {
+  background: var(--accent-light);
+}
+
+.results-table tr.ours td:first-child {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.results-table tr.group-sep td {
+  border-top: 2px solid #dbdbdb;
+}
+
+.results-table .block {
+  text-align: center;
+  background: #f3f3f1;
+  font-weight: 600;
+}
+
+.table-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+/* scramble illustration */
+.scramble {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  max-width: 820px;
+  margin: 1.25rem auto 0.5rem;
+  text-align: left;
+}
+
+.scramble .cot-card {
+  background: #fafaf8;
+  border: 1px solid #e3e3df;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.scramble .cot-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.scramble .step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  padding: 0.28rem 0;
+  color: #000;
+}
+
+.scramble .step .idx {
+  flex: 0 0 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scramble .cot-card.shuffled .step .idx {
+  background: var(--gold);
+}
+
+.scramble .prob {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #000;
+}
+
+.scramble .bar {
+  height: 10px;
+  background: #e8e8e4;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.scramble .bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.scramble .cot-card.shuffled .bar > span {
+  background: var(--gold);
+}
+
+.scramble .arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 0.85rem;
+  text-align: center;
+  min-width: 110px;
+  white-space: nowrap;
+}
+
+.scramble .arrow i {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .scramble { grid-template-columns: 1fr; }
+  .scramble .arrow { min-height: 60px; }
+  .scramble .arrow i { transform: rotate(90deg); }
+}
+
+/* method two-column */
+.method-col h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.method-col p {
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.method-col mjx-container[display="true"] {
+  margin: 0.6rem 0 !important;
+}
+
+/* qualitative examples */
+.context {
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.92rem;
+  text-align: left;
+  margin: 0.5rem auto 0.75rem;
+}
+
+.context b {
+  color: var(--accent-dark);
+}
+
+.example-card {
+  background: #fafaf8;
+  border: 1px solid #e3e3df;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin: 0 auto 0.5rem;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.example-card .ex-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #777;
+  margin-right: 0.4rem;
+}
+
+.example-card .ex-row {
+  padding: 0.5rem 0;
+  border-top: 1px solid #ebebe7;
+}
+
+.example-card .ex-row:first-child {
+  border-top: none;
+}
+
+.example-card .model {
+  font-weight: 700;
+  margin-right: 0.3rem;
+}
+
+.example-card .model.ours-name {
+  color: var(--accent);
+}
+
+.example-card .tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0 0.4rem;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+.tag.silent { background: #f7d2cd; color: #a23b32; }
+.tag.ack { background: #c5e5b8; color: #2e6b26; }
+.tag.wrong { background: #f7d2cd; color: #a23b32; }
+.tag.right { background: #c5e5b8; color: #2e6b26; }
+
+mark.ack { background: #c5e5b8; color: inherit; padding: 0 2px; }
+mark.silent { background: #f7d2cd; color: inherit; padding: 0 2px; }
+mark.invalid { background: #f7d2cd; color: inherit; padding: 0 2px; }
+
+.example-card code {
+  background: #efefeb;
+  color: #000;
+  font-size: 0.85em;
+}
+
+/* takeaways */
+.takeaway-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* Key Takeaways: four cards side by side */
+  gap: 1.25rem;
+  margin: 1rem auto 0;
+  text-align: left;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .takeaway-cards:not(.framework-cards) { grid-template-columns: 1fr 1fr; }   /* tablets: 2 x 2 */
+}
+
+.takeaway-card {
+  background: #fafaf8;
+  border: 1px solid #e3e3df;
+  border-top: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.takeaway-card .num {
+  display: inline-flex;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.takeaway-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #000;
+}
+
+.takeaway-card p {
+  font-size: 0.92rem;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .takeaway-cards, .takeaway-cards.framework-cards { grid-template-columns: 1fr; }   /* phones: one column (the .framework-cards rule below would otherwise win) */
+}
+
+/* citation */
+pre.bibtex {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.footer {
+  background: #fafafa;
+  padding: 2rem 1.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+/* Table 1 header shading, same colors as the paper */
+.results-table th.in-label   { background: #d1e0f5; }
+.results-table th.in-easy    { background: #f0f5fc; }
+.results-table th.in-medeasy { background: #dee8f7; }
+.results-table th.in-medhard { background: #c9dbf2; }
+.results-table th.in-hard    { background: #b3ccec; }
+.results-table th.out-label   { background: #fae0c7; }
+.results-table th.out-easy    { background: #fcf5eb; }
+.results-table th.out-medeasy { background: #faebd9; }
+.results-table th.out-medhard { background: #f7e0c7; }
+.results-table th.out-hard    { background: #f5d4b0; }
+.hl-in  { background: #d1e0f5; padding: 0 3px; }
+.hl-out { background: #fae0c7; padding: 0 3px; }
+
+/* tiers 2 and 3 side by side */
+.tier-row .tier {
+  margin-top: 2.25rem;
+}
+
+.tier-row .results-table {
+  font-size: 0.84rem;
+}
+
+.tier-row .tier-head {
+  justify-content: flex-start;
+}
+
+.tier-row .table-container {
+  margin-bottom: 0;
+}
+
+/* side-by-side qualitative examples */
+.example-panel .context {
+  margin: 0 0 0.6rem;
+}
+.example-panel .example-card {
+  flex: 1 1 auto;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.88rem;
+}
+.example-panel .sub-heading {
+  margin-bottom: 0.6rem;
+}
+
+.example-panel .figure-caption {
+  margin-top: 0.6rem;
+}
+
+.example-panel > .sub-heading {
+  white-space: normal;
+}
+
+/* wider row for the side-by-side qualitative examples (same trick as AnchorWeave's galleries) */
+.wide-container {
+  max-width: 1180px !important;
+}
+
+.conclusion-container {
+  max-width: 1180px !important;
+}
+
+@media (min-width: 769px) {
+  .column.col-40 { flex: none; width: 40%; }
+  .column.col-60 { flex: none; width: 60%; }
+}
+
+.takeaway-card p {
+  text-align: left;
+}
+
+.lead-narrow {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.limits-container {
+  max-width: 1120px !important;
+}
+
+/* one width for all running text: abstract, method, results, citation, and the section leads */
+.text-container {
+  max-width: 1040px !important;
+}
+
+.col-60 .figure-block img {
+  max-width: 92%;
+}
+
+.example-panel .example-card {
+  font-size: 0.92rem;
+}
+
+.example-panel .desc {
+  font-size: 0.95rem;
+}
+
+
+/* section spacing: more room above each title, less below the section's content (Bulma default is 3rem / 3rem) */
+.section {
+  padding-top: 3.75rem;
+  padding-bottom: 2rem;
+}
+
+/* evaluation framework cards: three equal columns */
+.framework-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tier-sub {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.results-table .worst,
+.table-note .worst {
+  color: #b5321f;
+  font-weight: 600;
+}
+
+/* reproducibility resource list */
+.resource-list {
+  display: block;
+  list-style: disc outside;
+  text-align: left !important;
+  margin: 0 0 0 1.5rem;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.resource-list li {
+  margin-bottom: 0.45rem;
+}
+
+.resource-list a {
+  color: var(--accent);
+}
+
+.resource-list code {
+  font-size: 0.9em;
+}
+
+/* room between a section title and its content (Bulma default is 1.5rem) */
+.section .title.is-3 {
+  margin-bottom: 2rem;
+}
+
+/* result charts */
+.chart {
+  margin: 0 0 0.5rem;
+}
+
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+details.table-details {
+  text-align: left;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+}
+
+details.table-details summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+details.table-details .table-container {
+  margin-top: 0.5rem;
+}
+
+/* the abstract sits closer to Figure 1; other section gaps unchanged */
+.section.abstract-section {
+  padding-top: 1.25rem;
+}
+
+/* chart hover */
+.chart {
+  position: relative;
+}
+
+.chart svg g.series,
+.chart svg .bar {
+  transition: opacity 0.15s;
+}
+
+.chart svg.has-hover g.series { opacity: 0.22; }
+.chart svg.has-hover g.series.is-hover { opacity: 1; }
+.chart svg g.series.is-hover .trace { stroke-width: 3.5; }
+.chart svg.has-hover .bar { opacity: 0.35; }
+.chart svg.has-hover .bar.is-hover { opacity: 1; }
+
+.chart-tip {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  background: #fff;
+  border: 1px solid #ddddd8;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: left;
+  white-space: nowrap;
+  color: #000;
+}
+
+.chart-tip .head {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.chart-tip .row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chart-tip .row.strong { font-weight: 700; }
+
+.chart-tip .sw {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex: none;
+}
+
+.chart-tip .v {
+  margin-left: auto;
+  padding-left: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* tiers 2 and 3 side by side: push each chart to the bottom so the two charts align */
+.tier-row > .column {
+  display: flex;
+}
+
+.tier-row .tier {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tier-row .tier .chart {
+  margin-top: auto;
+}
+
+/* ---- hero buttons: near-black like MiRL (Bulma is-dark is #363636) ---- */
+/* keep the six pills on one row after the page-wide 17px bump (0.94rem = 16px, their previous size) */
+.link-block .button {
+  font-size: 0.94rem;
+}
+.link-block a.is-dark {
+  background: #171a21;
+  color: #fff;
+}
+.link-block a.is-dark:hover {
+  background: #343a46;
+  color: #fff;
+}
+
+/* ---- hero buttons: Code in accent, BibTeX outlined ---- */
+.link-block a.is-code {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+.link-block a.is-code:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+.link-block a.is-bibtex {
+  background: #fff;
+  color: #171a21;
+  border: 1px solid #d9dde5;
+}
+.link-block a.is-bibtex:hover {
+  border-color: #b5b5b5;
+  color: #000;
+}
+
+/* ---- resources card (code / models / responses) ---- */
+.resources-section { padding-top: 0; }
+.resources-card {
+  border: 1px solid var(--accent-border);
+  background: var(--accent-light);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem 0.75rem;
+}
+.resources-head {
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-bottom: 0.9rem;
+}
+.resources-head .icon { margin-right: 0.3rem; }
+.resource-tile {
+  display: block;
+  height: 100%;
+  background: #fff;
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  color: #000;
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+.resource-tile:hover {
+  color: #000;
+  box-shadow: 0 4px 14px rgba(107, 63, 181, 0.16);
+  transform: translateY(-1px);
+}
+.resource-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+}
+.resource-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  margin: 0.2rem 0 0.4rem;
+  word-break: break-all;
+}
+.resource-desc { font-size: 0.9rem; line-height: 1.45; }
+
+/* ---- pure black text (Bulma defaults to #363636 / #4a4a4a) ---- */
+body, .title, .subtitle, strong, b,
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6,
+.table, .table th, .table td, .results-table, .results-table th, .results-table td {
+  color: #000;
+}
+
+/* play-by-K controls under the CoT-Pass@K / Pass@K chart (same look as the Figure 1 video controls) */
+.pk-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 6px 0;
+}
+.pk-btn {
+  min-width: 92px;
+  padding: 2px 10px;
+  font: inherit;
+  font-size: 0.8rem;
+  color: #333;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.pk-btn:hover { border-color: var(--accent); color: var(--accent); }
+.pk-klabel { font-size: 0.8rem; color: #333; white-space: nowrap; }
+.pk-klabel b { display: inline-block; min-width: 1.9em; }
+.pk-track {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  background: #e9e9e9;
+  border-radius: 2px;
+  cursor: pointer;
+  touch-action: none;
+}
+.pk-track::before { content: ""; position: absolute; left: 0; right: 0; top: -9px; bottom: -9px; }   /* easier to hit */
+.pk-fill { height: 100%; width: 0; background: var(--accent); border-radius: 2px; }
+.pk-stops { position: absolute; inset: 0; pointer-events: none; }
+.pk-stop {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #cfcfca;
+  box-sizing: border-box;
+}
+.pk-stop.on { border-color: var(--accent); background: var(--accent); }
+.chart svg .klabels text { pointer-events: none; }
+.chart-tip .head .cols { display: inline-flex; gap: 0.9rem; margin-left: 1.2rem; font-weight: 400; color: #6b6b6b; font-size: 0.78rem; }
+.chart-tip .v2 { margin-left: 0.9rem; min-width: 2.6em; text-align: right; }
